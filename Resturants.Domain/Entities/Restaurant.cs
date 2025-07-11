@@ -1,5 +1,5 @@
 ﻿namespace Resturants.Domain.Entities;
-public class Resturant
+public class Restaurant
 {
     public int Id { get; set; }
 
@@ -9,7 +9,7 @@ public class Resturant
 
     public string Category { get; set; } = default!;
 
-    public bool HasDelivered { get; set; }
+    public bool HasDelivery { get; set; }
 
     public string? ContactEmail { get; set; }
 

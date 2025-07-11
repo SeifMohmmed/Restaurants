@@ -2,9 +2,9 @@
 using Resturants.Domain.Entities;
 
 namespace Resturants.Infrastructure.Data;
-internal class ResturantsDbContext(DbContextOptions<ResturantsDbContext> options) : DbContext(options)
+internal class RestaurantDbContext(DbContextOptions<RestaurantDbContext> options) : DbContext(options)
 {
-    internal DbSet<Resturant> Resturants { get; set; }
+    internal DbSet<Restaurant> Resturants { get; set; }
 
     internal DbSet<Dish> Dishes { get; set; }
 
@@ -12,12 +12,12 @@ internal class ResturantsDbContext(DbContextOptions<ResturantsDbContext> options
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.Entity<Resturant>()
+        modelBuilder.Entity<Restaurant>()
                     .OwnsOne(x => x.Address);
 
-        modelBuilder.Entity<Resturant>()
+        modelBuilder.Entity<Restaurant>()
                     .HasMany(x => x.Dishes)
                     .WithOne()
-                    .HasForeignKey(x => x.ResturantId);
+                    .HasForeignKey(x => x.RestaurantId);
     }
 }

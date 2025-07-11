@@ -19,11 +19,11 @@ namespace Resturants.Infrastructure.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Category = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    HasDelivered = table.Column<bool>(type: "bit", nullable: false),
+                    HasDelivery = table.Column<bool>(type: "bit", nullable: false),
                     ContactEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ContactNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Address_City = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Address_StreetCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Address_Street = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Address_PostalCode = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -40,23 +40,23 @@ namespace Resturants.Infrastructure.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    ResturantId = table.Column<int>(type: "int", nullable: false)
+                    RestaurantId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Dishes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Dishes_Resturants_ResturantId",
-                        column: x => x.ResturantId,
+                        name: "FK_Dishes_Resturants_RestaurantId",
+                        column: x => x.RestaurantId,
                         principalTable: "Resturants",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Dishes_ResturantId",
+                name: "IX_Dishes_RestaurantId",
                 table: "Dishes",
-                column: "ResturantId");
+                column: "RestaurantId");
         }
 
         /// <inheritdoc />

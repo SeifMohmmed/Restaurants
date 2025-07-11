@@ -10,8 +10,8 @@ using Resturants.Infrastructure.Data;
 
 namespace Resturants.Infrastructure.Migrations
 {
-    [DbContext(typeof(ResturantsDbContext))]
-    [Migration("20250711133731_Init")]
+    [DbContext(typeof(RestaurantDbContext))]
+    [Migration("20250711142427_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -43,17 +43,17 @@ namespace Resturants.Infrastructure.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("ResturantId")
+                    b.Property<int>("RestaurantId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ResturantId");
+                    b.HasIndex("RestaurantId");
 
                     b.ToTable("Dishes");
                 });
 
-            modelBuilder.Entity("Resturants.Domain.Entities.Resturant", b =>
+            modelBuilder.Entity("Resturants.Domain.Entities.Restaurant", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -75,7 +75,7 @@ namespace Resturants.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("HasDelivered")
+                    b.Property<bool>("HasDelivery")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
@@ -89,18 +89,18 @@ namespace Resturants.Infrastructure.Migrations
 
             modelBuilder.Entity("Resturants.Domain.Entities.Dish", b =>
                 {
-                    b.HasOne("Resturants.Domain.Entities.Resturant", null)
+                    b.HasOne("Resturants.Domain.Entities.Restaurant", null)
                         .WithMany("Dishes")
-                        .HasForeignKey("ResturantId")
+                        .HasForeignKey("RestaurantId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Resturants.Domain.Entities.Resturant", b =>
+            modelBuilder.Entity("Resturants.Domain.Entities.Restaurant", b =>
                 {
                     b.OwnsOne("Resturants.Domain.Entities.Address", "Address", b1 =>
                         {
-                            b1.Property<int>("ResturantId")
+                            b1.Property<int>("RestaurantId")
                                 .HasColumnType("int");
 
                             b1.Property<string>("City")
@@ -109,21 +109,21 @@ namespace Resturants.Infrastructure.Migrations
                             b1.Property<string>("PostalCode")
                                 .HasColumnType("nvarchar(max)");
 
-                            b1.Property<string>("StreetCode")
+                            b1.Property<string>("Street")
                                 .HasColumnType("nvarchar(max)");
 
-                            b1.HasKey("ResturantId");
+                            b1.HasKey("RestaurantId");
 
                             b1.ToTable("Resturants");
 
                             b1.WithOwner()
-                                .HasForeignKey("ResturantId");
+                                .HasForeignKey("RestaurantId");
                         });
 
                     b.Navigation("Address");
                 });
 
-            modelBuilder.Entity("Resturants.Domain.Entities.Resturant", b =>
+            modelBuilder.Entity("Resturants.Domain.Entities.Restaurant", b =>
                 {
                     b.Navigation("Dishes");
                 });
