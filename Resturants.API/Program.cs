@@ -1,6 +1,6 @@
+using Resturants.Application.Extentions;
 using Resturants.Infrastructure.Extentions;
 using Resturants.Infrastructure.Seeders;
-
 namespace Resturants.API
 {
     public class Program
@@ -16,15 +16,15 @@ namespace Resturants.API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddApplication();
 
-            //Add Connection to SQL Server
             builder.Services.AddInfrastructure(builder.Configuration);
 
 
             var app = builder.Build();
 
             var scoope = app.Services.CreateScope();
-            var seeder = scoope.ServiceProvider.GetRequiredService<IResturantSeeders>();
+            var seeder = scoope.ServiceProvider.GetRequiredService<IRestaurantSeeders>();
             await seeder.Seed();
 
             // Configure the HTTP request pipeline.

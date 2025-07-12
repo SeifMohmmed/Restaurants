@@ -2,7 +2,7 @@
 using Resturants.Infrastructure.Data;
 
 namespace Resturants.Infrastructure.Seeders;
-internal class ResturantSeeders(RestaurantDbContext context) : IResturantSeeders
+internal class RestaurantSeeders(RestaurantDbContext context) : IRestaurantSeeders
 {
     public async Task Seed()
     {
