@@ -1,7 +1,7 @@
-﻿using Resturants.Domain.Entities;
-using Resturants.Infrastructure.Data;
+﻿using Restaurants.Domain.Entities;
+using Restaurants.Infrastructure.Data;
 
-namespace Resturants.Infrastructure.Seeders;
+namespace Restaurants.Infrastructure.Seeders;
 internal class RestaurantSeeders(RestaurantDbContext context) : IRestaurantSeeders
 {
     public async Task Seed()

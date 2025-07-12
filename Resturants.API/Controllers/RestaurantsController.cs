@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Resturants.Application.Resturants;
+using Restaurants.Application.Resturants;
 
-namespace Resturants.API.Controllers;
+namespace Restaurants.API.Controllers;
 [Route("api/[controller]")]
 [ApiController]
-public class ResturantsController(IRestaurantService restaurantService) : ControllerBase
+public class RestaurantsController(IRestaurantService restaurantService) : ControllerBase
 {
     [HttpGet]
     public async Task<IActionResult> GetAll()

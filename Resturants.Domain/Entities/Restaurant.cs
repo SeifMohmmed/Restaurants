@@ -1,4 +1,4 @@
-﻿namespace Resturants.Domain.Entities;
+﻿namespace Restaurants.Domain.Entities;
 public class Restaurant
 {
     public int Id { get; set; }

@@ -1,6 +1,6 @@
-﻿using Resturants.Domain.Entities;
+﻿using Restaurants.Domain.Entities;
 
-namespace Resturants.Domain.Repositories;
+namespace Restaurants.Domain.Repositories;
 public interface IRestaurantsRepository
 {
     Task<IEnumerable<Restaurant>> GetAllAsync();

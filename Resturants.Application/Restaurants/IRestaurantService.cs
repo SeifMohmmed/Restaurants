@@ -1,6 +1,6 @@
-﻿using Resturants.Domain.Entities;
+﻿using Restaurants.Domain.Entities;
 
-namespace Resturants.Application.Resturants;
+namespace Restaurants.Application.Resturants;
 public interface IRestaurantService
 {
     Task<IEnumerable<Restaurant>> GetAllRestaurants();

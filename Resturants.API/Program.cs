@@ -1,6 +1,6 @@
-using Resturants.Application.Extentions;
-using Resturants.Infrastructure.Extentions;
-using Resturants.Infrastructure.Seeders;
+using Restaurants.Application.Extentions;
+using Restaurants.Infrastructure.Extentions;
+using Restaurants.Infrastructure.Seeders;
 namespace Resturants.API
 {
     public class Program

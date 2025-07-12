@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Resturants.Application.Resturants;
+using Restaurants.Application.Resturants;
 
-namespace Resturants.Application.Extentions;
+namespace Restaurants.Application.Extentions;
 public static class ServiceCollectionExtentions
 {
     public static void AddApplication(this IServiceCollection services)

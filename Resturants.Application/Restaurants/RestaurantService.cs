@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
-using Resturants.Domain.Entities;
-using Resturants.Domain.Repositories;
+using Restaurants.Domain.Entities;
+using Restaurants.Domain.Repositories;
 
-namespace Resturants.Application.Resturants;
+namespace Restaurants.Application.Resturants;
 internal class RestaurantService(IRestaurantsRepository restaurantsRepository,
               ILogger<RestaurantService> logger) : IRestaurantService
 {

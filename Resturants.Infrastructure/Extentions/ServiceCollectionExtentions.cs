@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Resturants.Domain.Repositories;
-using Resturants.Infrastructure.Data;
-using Resturants.Infrastructure.Repositories;
-using Resturants.Infrastructure.Seeders;
+using Restaurants.Domain.Repositories;
+using Restaurants.Infrastructure.Data;
+using Restaurants.Infrastructure.Repositories;
+using Restaurants.Infrastructure.Seeders;
 
-namespace Resturants.Infrastructure.Extentions;
+namespace Restaurants.Infrastructure.Extentions;
 public static class ServiceCollectionExtentions
 {
     public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)

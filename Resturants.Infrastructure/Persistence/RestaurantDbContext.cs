@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Resturants.Domain.Entities;
+using Restaurants.Domain.Entities;
 
-namespace Resturants.Infrastructure.Data;
+namespace Restaurants.Infrastructure.Data;
 internal class RestaurantDbContext(DbContextOptions<RestaurantDbContext> options) : DbContext(options)
 {
     internal DbSet<Restaurant> Resturants { get; set; }

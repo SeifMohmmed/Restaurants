@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Resturants.Domain.Entities;
-using Resturants.Domain.Repositories;
-using Resturants.Infrastructure.Data;
+using Restaurants.Domain.Entities;
+using Restaurants.Domain.Repositories;
+using Restaurants.Infrastructure.Data;
 
-namespace Resturants.Infrastructure.Repositories;
+namespace Restaurants.Infrastructure.Repositories;
 internal class RestaurantsRepository(RestaurantDbContext context)
         : IRestaurantsRepository
 {
