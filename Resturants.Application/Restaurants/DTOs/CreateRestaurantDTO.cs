@@ -1,8 +1,6 @@
-﻿namespace Restaurants.Domain.Entities;
-public class Restaurant
+﻿namespace Restaurants.Application.Restaurants.DTOs;
+public class CreateRestaurantDTO
 {
-    public int Id { get; set; }
-
     public string Name { get; set; } = default!;
 
     public string Description { get; set; } = default!;
@@ -15,8 +13,10 @@ public class Restaurant
 
     public string? ContactNumber { get; set; }
 
-    public Address? Address { get; set; }
+    public string? City { get; set; }
 
-    public List<Dish> Dishes { get; set; } = new();
+    public string? Street { get; set; }
+
+    public string? PostalCode { get; set; }
 
 }

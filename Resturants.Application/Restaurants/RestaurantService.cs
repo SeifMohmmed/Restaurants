@@ -8,6 +8,17 @@ namespace Restaurants.Application.Resturants;
 internal class RestaurantService(IRestaurantsRepository restaurantsRepository,
               ILogger<RestaurantService> logger, IMapper mapper) : IRestaurantService
 {
+    public async Task<int> Create(CreateRestaurantDTO dto)
+    {
+        logger.LogInformation(message: "Creating a new restaurant");
+
+        var restaurant = mapper.Map<Restaurant>(dto);
+
+        int id = await restaurantsRepository.Create(restaurant);
+
+        return id;
+    }
+
     public async Task<IEnumerable<RestaurantDTO?>> GetAllRestaurants()
     {
         logger.LogInformation("Getting All Restaurants");
