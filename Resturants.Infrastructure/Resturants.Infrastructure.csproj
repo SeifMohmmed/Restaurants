@@ -15,7 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
+<<<<<<< Updated upstream:Resturants.Infrastructure/Resturants.Infrastructure.csproj
     <ProjectReference Include="..\Resturants.Application\Resturants.Application.csproj" />
+=======
+    <ProjectReference Include="..\Restaurants.Application\Restaurants.Application.csproj" />
+>>>>>>> Stashed changes:Restaurants.Infrastructure/Restaurants.Infrastructure.csproj
   </ItemGroup>
 
 </Project>
