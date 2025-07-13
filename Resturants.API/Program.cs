@@ -1,4 +1,4 @@
-using Restaurants.Application.Extentions;
+using Restaurants.Application.Extensions;
 using Restaurants.Infrastructure.Extentions;
 using Restaurants.Infrastructure.Seeders;
 namespace Resturants.API
