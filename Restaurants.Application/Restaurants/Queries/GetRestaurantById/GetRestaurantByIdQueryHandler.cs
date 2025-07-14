@@ -11,7 +11,7 @@ public class GetRestaurantByIdQueryHandler(ILogger<GetRestaurantByIdQuery> logge
 {
     public async Task<RestaurantDTO?> Handle(GetRestaurantByIdQuery request, CancellationToken cancellationToken)
     {
-        logger.LogInformation($"Getting Restaurant With Id ({request.Id})");
+        logger.LogInformation("Getting restaurant {RestaurantId}", request.Id);
 
         var restaurant = await restaurantsRepository.GetByIdAsync(request.Id);
 
