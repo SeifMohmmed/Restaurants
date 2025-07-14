@@ -1,3 +1,4 @@
+using Restaurants.API.Middlewares;
 using Restaurants.Application.Extensions;
 using Restaurants.Infrastructure.Extentions;
 using Restaurants.Infrastructure.Seeders;
@@ -14,6 +15,8 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
+        builder.Services.AddScoped<ErrorHandlingMiddleware>();
+
         builder.Services.AddApplication();
 
         builder.Services.AddInfrastructure(builder.Configuration);
@@ -28,6 +31,8 @@ public class Program
         var scoope = app.Services.CreateScope();
         var seeder = scoope.ServiceProvider.GetRequiredService<IRestaurantSeeders>();
         await seeder.Seed();
+
+        app.UseMiddleware<ErrorHandlingMiddleware>();
 
         app.UseSerilogRequestLogging();
 
