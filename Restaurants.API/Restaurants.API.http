@@ -31,3 +31,15 @@ Content-Type: application/json
 DELETE {{Restaurants.API_HostAddress}}/api/restaurants/{{id}}
 
 ###
+
+@id=5
+PATCH {{Restaurants.API_HostAddress}}/api/restaurants/{{id}}
+Content-Type: application/json
+
+{
+  "Name": "Sample patch",
+  "Description": "This is a sample restaurant description.",
+  "HasDelivery": true
+}
+
+###
