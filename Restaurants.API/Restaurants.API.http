@@ -26,3 +26,8 @@ Content-Type: application/json
 
 ###
 
+
+@id=6
+DELETE {{Restaurants.API_HostAddress}}/api/restaurants/{{id}}
+
+###
