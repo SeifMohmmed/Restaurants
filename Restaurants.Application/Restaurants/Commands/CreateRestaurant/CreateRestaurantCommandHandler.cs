@@ -15,7 +15,7 @@ public class CreateRestaurantCommandHandler(ILogger<CreateRestaurantCommand> log
 
         var restaurant = mapper.Map<Restaurant>(request);
 
-        int id = await restaurantsRepository.Create(restaurant);
+        int id = await restaurantsRepository.CreateAsync(restaurant);
 
         return id;
     }
