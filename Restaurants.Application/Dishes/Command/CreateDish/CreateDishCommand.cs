@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Restaurants.Application.Dishes.DTOs.Command.CreateDish;
+namespace Restaurants.Application.Dishes.Command.CreateDish;
 public class CreateDishCommand : IRequest
 {
     public string Name { get; set; } = default!;

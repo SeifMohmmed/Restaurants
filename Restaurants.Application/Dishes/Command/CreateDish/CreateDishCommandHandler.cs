@@ -5,7 +5,7 @@ using Restaurants.Domain.Entities;
 using Restaurants.Domain.Exceptions;
 using Restaurants.Domain.Repositories;
 
-namespace Restaurants.Application.Dishes.DTOs.Command.CreateDish;
+namespace Restaurants.Application.Dishes.Command.CreateDish;
 public class CreateDishCommandHandler(ILogger<CreateDishCommandHandler> logger,
     IRestaurantsRepository restaurantsRepository,
     IDishesRepository dishesRepository,
