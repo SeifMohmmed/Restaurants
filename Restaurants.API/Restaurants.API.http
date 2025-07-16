@@ -69,7 +69,7 @@ GET {{Restaurants.API_HostAddress}}/api/restaurants/{{restaurantId}}/dishes
 GET {{Restaurants.API_HostAddress}}/api/restaurants/3/dishes/6
 
 ###
-POST {{Restaurants.API_HostAddress}}/api/identityregister
+POST {{Restaurants.API_HostAddress}}/api/identity/register
 Content-Type: application/json
 
 {
