@@ -1,11 +1,12 @@
 ﻿@Restaurants.API_HostAddress = https://localhost:7067
-
+@token = CfDJ8Pk5uW0cGtlCvC5EtxqUxHlGeVbvbQHQktYmO1lkE0AGyPshq1Y3sgOsbz-L8u0iE-3etvxiUV-7eR9n6nYmd43gSXj7DpQuJnj7grwDA6r5lRRCwiMTHR-qLOJJ8BgFalOrjd29uki3wuMUJhPAPslJfnFR12FpjykX6JyUzbhDF7TkIn4VejBrr_4h_NojZixRYBoM0vGWawZ2N39uPFarDHMLAJ5YRZOtBHktR8WG8vaItftRXn2qs1axyPIDGjzRb2uc7Rk8UKFFV_s_tsMxjwXu2_0j2wDgTOG8a9XL_hY42onaP8joGWjfvsO2ER4UHeFKL_aXJe3CHQB_wv2k52W4qQmKE5GiSJMcTzOvDhutNaCZz4rQkV3HuSSia6ClQoh4drcuZD0Pwcm1AHCs8---oDEJHkZUAecadecSlILy3YIaALU8jyE_XAF_5FIY4zPfQBE5g7hhHzjY268cbFFUtuECmQEwrtwyGMhamNgOcOechc4cwTJGXEAJk69dUjZC9lMG1XB3XbxoRc6yEYlaQF7tvQOdlzrTqWCotKIUE6ksyRQyGkHMt2D-HsqlmiZqBQA8PzRL55k-m4hOOGck82VBvehhDcChV4OPBAcvWRX3f1eSuixbFDKh48b0dXTsG1sO7XD6JlTQazXeapPGmz_vdqCpecFKr0Vjjhi3pHDFPxcfM42k1wTPkQ
 GET {{Restaurants.API_HostAddress}}/api/restaurants
 
 ###
 
 
 GET https://localhost:7067/api/Restaurants/5
+Authorization: Bearer {{token}}
 
 ###
 
@@ -68,7 +69,7 @@ GET {{Restaurants.API_HostAddress}}/api/restaurants/{{restaurantId}}/dishes
 GET {{Restaurants.API_HostAddress}}/api/restaurants/3/dishes/6
 
 ###
-POST {{Restaurants.API_HostAddress}}/register
+POST {{Restaurants.API_HostAddress}}/api/identityregister
 Content-Type: application/json
 
 {
@@ -76,7 +77,7 @@ Content-Type: application/json
     "password": "Password1!"
 }
 ###
-POST {{Restaurants.API_HostAddress}}/login
+POST {{Restaurants.API_HostAddress}}/api/identity/login
 Content-Type: application/json
 
 {
