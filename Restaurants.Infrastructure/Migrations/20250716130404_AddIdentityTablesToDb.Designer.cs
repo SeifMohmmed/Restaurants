@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Restaurants.Infrastructure.Data;
 
@@ -11,9 +12,11 @@ using Restaurants.Infrastructure.Data;
 namespace Resturants.Infrastructure.Migrations
 {
     [DbContext(typeof(RestaurantDbContext))]
-    partial class RestaurantDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250716130404_AddIdentityTablesToDb")]
+    partial class AddIdentityTablesToDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -249,7 +252,7 @@ namespace Resturants.Infrastructure.Migrations
 
                     b.HasIndex("RestaurantId");
 
-                    b.ToTable("Dishes", (string)null);
+                    b.ToTable("Dishes");
                 });
 
             modelBuilder.Entity("Restaurants.Domain.Entities.Restaurant", b =>
@@ -283,7 +286,7 @@ namespace Resturants.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Resturants", (string)null);
+                    b.ToTable("Resturants");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -364,7 +367,7 @@ namespace Resturants.Infrastructure.Migrations
 
                             b1.HasKey("RestaurantId");
 
-                            b1.ToTable("Resturants", (string)null);
+                            b1.ToTable("Resturants");
 
                             b1.WithOwner()
                                 .HasForeignKey("RestaurantId");
