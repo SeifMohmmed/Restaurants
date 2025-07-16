@@ -1,5 +1,6 @@
 using Restaurants.API.Middlewares;
 using Restaurants.Application.Extensions;
+using Restaurants.Domain.Entities;
 using Restaurants.Infrastructure.Extentions;
 using Restaurants.Infrastructure.Seeders;
 using Serilog;
@@ -46,6 +47,8 @@ public class Program
         }
 
         app.UseHttpsRedirection();
+
+        app.MapIdentityApi<ApplicationUser>();
 
         app.UseAuthorization();
 
