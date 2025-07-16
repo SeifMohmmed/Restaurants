@@ -1,4 +1,4 @@
-using Microsoft.OpenApi.Models;
+using Restaurants.API.Extensions;
 using Restaurants.API.Middlewares;
 using Restaurants.Application.Extensions;
 using Restaurants.Domain.Entities;
@@ -13,43 +13,12 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        builder.Services.AddControllers();
-        builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen(c =>
-        {
-            c.AddSecurityDefinition("bearerAuth", new OpenApiSecurityScheme
-            {
-                Type = SecuritySchemeType.Http,
-                Scheme = "Bearer"
-            });
-
-            c.AddSecurityRequirement(new OpenApiSecurityRequirement
-            {
-                {
-                new OpenApiSecurityScheme
-                    {
-                        Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "bearerAuth"}
-                    },
-            []
-                }
-
-            });
-        });
-
-        //this include every minimal endpoint from our API through a swagger interface.
-        builder.Services.AddEndpointsApiExplorer();
-
-        builder.Services.AddScoped<ErrorHandlingMiddleware>();
-        builder.Services.AddScoped<RequestTimeLoggingMiddleware>();
+        // Add services to the container.
+        builder.AddPresentation();
 
         builder.Services.AddApplication();
 
         builder.Services.AddInfrastructure(builder.Configuration);
-
-        builder.Host.UseSerilog((context, configuration) =>
-            configuration.ReadFrom.Configuration(context.Configuration)
-            );
-
 
         var app = builder.Build();
 
