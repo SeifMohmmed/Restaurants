@@ -27,6 +27,15 @@ internal class RestaurantSeeders(RestaurantDbContext context) : IRestaurantSeede
 
                 await context.SaveChangesAsync();
             }
+
+            if (!context.Roles.Any())
+            {
+                var roles = GetRoles();
+
+                context.Roles.AddRange(roles);
+
+                await context.SaveChangesAsync();
+            }
         }
     }
 
