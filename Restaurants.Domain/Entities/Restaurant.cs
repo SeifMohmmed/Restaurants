@@ -19,4 +19,8 @@ public class Restaurant
 
     public List<Dish> Dishes { get; set; } = new();
 
+    public ApplicationUser Owner { get; set; } = default!;
+
+    public string OwnerId { get; set; } = default!;
+
 }
