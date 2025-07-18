@@ -33,7 +33,7 @@ public static class ServiceCollectionExtentions
 
         services.AddAuthorizationBuilder()
                 .AddPolicy(PolicyNames.HasNationality, builder => builder.RequireClaim(AppClaimTypes.Nationality, "German", "Polish"))
-                .AddPolicy(PolicyNames.AtLeast20, builder => builder.AddRequirements(new MinimumAgeRequirement(20));
+                .AddPolicy(PolicyNames.AtLeast20, builder => builder.AddRequirements(new MinimumAgeRequirement(20)));
 
         services.AddScoped<IAuthorizationHandler, MinimumAgeRequirementHandler>();
     }

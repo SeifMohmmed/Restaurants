@@ -7,4 +7,5 @@ public class ApplicationUser : IdentityUser
 
     public string? Nationality { get; set; }
 
+    public List<Restaurant> OwnedRestaurants { get; set; } = [];
 }
