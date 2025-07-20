@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Restaurants.Domain.Constants;
 using Restaurants.Domain.Entities;
 using Restaurants.Domain.Repositories;
 using Restaurants.Infrastructure.Data;
+using System.Linq.Expressions;
 
 namespace Restaurants.Infrastructure.Repositories;
 internal class RestaurantsRepository(RestaurantDbContext context)
@@ -26,7 +28,11 @@ internal class RestaurantsRepository(RestaurantDbContext context)
         var restaurants = await context.Restaurants.ToListAsync();
         return restaurants;
     }
-    public async Task<(IEnumerable<Restaurant>, int)> GetAllMathchingAsync(string? searchPhrase, int pageNumber, int pageSize)
+    public async Task<(IEnumerable<Restaurant>, int)> GetAllMathchingAsync(string? searchPhrase,
+        int pageNumber,
+        int pageSize,
+        string? sortBy,
+        SortDirection direction)
     {
         var searchPhraseLower = searchPhrase?.ToLower();
 
@@ -37,6 +43,24 @@ internal class RestaurantsRepository(RestaurantDbContext context)
 
 
         var totalCount = await baseQuery.CountAsync();
+
+
+        if (sortBy != null)
+        {
+            var columnsSelector = new Dictionary<string, Expression<Func<Restaurant, object>>>
+            {
+                { nameof(Restaurant.Name), r => r.Name },
+                { nameof(Restaurant.Description), r => r.Description },
+                { nameof(Restaurant.Category), r => r.Category },
+            };
+
+            var selectedColumn = columnsSelector[sortBy];
+
+            baseQuery = direction == SortDirection.Ascending
+                    ? baseQuery.OrderBy(selectedColumn)
+                    : baseQuery.OrderByDescending(selectedColumn);
+
+        }
 
         var restaurants = await baseQuery
             .Skip(pageSize * (pageNumber - 1))
