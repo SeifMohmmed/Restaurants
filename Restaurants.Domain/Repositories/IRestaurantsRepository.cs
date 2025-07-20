@@ -4,6 +4,7 @@ namespace Restaurants.Domain.Repositories;
 public interface IRestaurantsRepository
 {
     Task<IEnumerable<Restaurant>> GetAllAsync();
+    Task<IEnumerable<Restaurant>> GetAllMathchingAsync(string? searchPhrase);
     Task<Restaurant?> GetByIdAsync(int id);
     Task<int> CreateAsync(Restaurant entity);
     Task DeleteAsync(Restaurant entity);

@@ -6,7 +6,7 @@ namespace Restaurants.Infrastructure.Data;
 internal class RestaurantDbContext(DbContextOptions<RestaurantDbContext> options)
     : IdentityDbContext<ApplicationUser>(options)
 {
-    internal DbSet<Restaurant> Resturants { get; set; }
+    internal DbSet<Restaurant> Restaurants { get; set; }
 
     internal DbSet<Dish> Dishes { get; set; }
 
