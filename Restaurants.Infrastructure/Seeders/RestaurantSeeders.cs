@@ -10,11 +10,11 @@ internal class RestaurantSeeders(RestaurantDbContext context) : IRestaurantSeede
     {
         if (await context.Database.CanConnectAsync())
         {
-            if (!context.Resturants.Any())
+            if (!context.Restaurants.Any())
             {
                 var resturants = GetResturants();
 
-                context.Resturants.AddRange(resturants);
+                context.Restaurants.AddRange(resturants);
 
                 await context.SaveChangesAsync();
             }

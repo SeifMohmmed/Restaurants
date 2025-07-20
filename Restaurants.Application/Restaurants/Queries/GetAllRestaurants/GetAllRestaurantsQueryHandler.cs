@@ -14,7 +14,7 @@ public class GetAllRestaurantsQueryHandler(ILogger<GetAllRestaurantsQuery> logge
     {
 
         logger.LogInformation("Getting All Restaurants");
-        IEnumerable<Restaurant>? restaurants = await restaurantsRepository.GetAllAsync();
+        IEnumerable<Restaurant>? restaurants = await restaurantsRepository.GetAllMathchingAsync(request.SearchPhrase);
 
         var restaurantDTOs = mapper.Map<IEnumerable<RestaurantDTO>?>(restaurants);
 
