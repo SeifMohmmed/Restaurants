@@ -6,7 +6,7 @@ using Restaurants.Domain.Entities;
 using Restaurants.Domain.Repositories;
 
 namespace Restaurants.Application.Restaurants.Commands.CreateRestaurant;
-public class CreateRestaurantCommandHandler(ILogger<CreateRestaurantCommand> logger,
+public class CreateRestaurantCommandHandler(ILogger<CreateRestaurantCommandHandler> logger,
     IMapper mapper,
     IUserContext userContext,
     IRestaurantsRepository restaurantsRepository) : IRequestHandler<CreateRestaurantCommand, int>
