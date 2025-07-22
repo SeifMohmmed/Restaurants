@@ -7,7 +7,7 @@ using Restaurants.Infrastructure.Seeders;
 using Serilog;
 namespace Resturants.API;
 
-public class Program
+public partial class Program
 {
     public static async Task Main(string[] args)
     {
