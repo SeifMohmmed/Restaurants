@@ -32,6 +32,7 @@ public static class ServiceCollectionExtentions
         services.AddScoped<IRestaurantSeeders, RestaurantSeeders>();
         services.AddScoped<IRestaurantsRepository, RestaurantsRepository>();
         services.AddScoped<IDishesRepository, DishesRepository>();
+        services.AddScoped<ICategoryRepository, CategoryRepository>();
 
         services.AddAuthorizationBuilder()
                 .AddPolicy(PolicyNames.HasNationality,
