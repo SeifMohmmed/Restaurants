@@ -10,6 +10,16 @@ internal class RestaurantDbContext(DbContextOptions<RestaurantDbContext> options
 
     internal DbSet<Dish> Dishes { get; set; }
 
+    internal DbSet<Category> Categories { get; set; }
+
+    internal DbSet<Customer> Customers { get; set; }
+
+    internal DbSet<Rating> Ratings { get; set; }
+
+    internal DbSet<Order> Order { get; set; }
+
+    internal DbSet<OrderItem> OrderItems { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
