@@ -7,7 +7,11 @@ public class DishesProfile : Profile
 {
     public DishesProfile()
     {
-        CreateMap<Dish, DishDTO>();
+        CreateMap<Dish, DishDTO>()
+                .ForMember(d => d.RestaurantName,
+                    opt => opt.MapFrom(src => src.Restaurant.Name))
+                  .ForMember(d => d.CategoryName,
+                    opt => opt.MapFrom(src => src.Category.Name));
 
         CreateMap<CreateDishCommand, Dish>();
 

@@ -13,4 +13,9 @@ public class DishDTO
 
     public int? KiloCalories { get; set; }
 
+    public string RestaurantName { get; set; } = default!;
+
+    public string CategoryName { get; set; } = default!;
+
+
 }

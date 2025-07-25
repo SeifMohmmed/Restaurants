@@ -20,9 +20,9 @@ public class GetAllCategoriesQueryHandler(ILogger<GetAllCategoriesQueryHandler> 
            request.SortBy,
            request.SortDirection);
 
-        var categoriesDtos = mapper.Map<IEnumerable<CategoryDTO>>(categories);
+        var categoriesDTO = mapper.Map<IEnumerable<CategoryDTO>>(categories);
 
-        var result = new PagedResult<CategoryDTO>(categoriesDtos, totalCount, request.PageSize, request.PageNumber);
+        var result = new PagedResult<CategoryDTO>(categoriesDTO, totalCount, request.PageSize, request.PageNumber);
         return result;
     }
 }

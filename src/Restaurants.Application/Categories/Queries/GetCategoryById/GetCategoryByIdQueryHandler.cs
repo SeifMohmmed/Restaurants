@@ -13,7 +13,7 @@ public class GetCategoryByIdQueryHandler(ILogger<GetCategoryByIdQuery> logger,
 {
     public async Task<CategoryDTO> Handle(GetCategoryByIdQuery request, CancellationToken cancellationToken)
     {
-        logger.LogInformation("Category with id : {CategoryID}", request.CategoryId);
+        logger.LogInformation(" Getting Category with id : {CategoryID}", request.CategoryId);
 
         var category = await categoryRepository.GetByIdAsync(request.CategoryId)
             ?? throw new NotFoundException(nameof(Category), request.CategoryId.ToString());
