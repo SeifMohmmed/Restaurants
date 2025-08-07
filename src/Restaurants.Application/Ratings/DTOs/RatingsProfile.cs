@@ -1,0 +1,15 @@
+﻿using AutoMapper;
+using Restaurants.Domain.Entities;
+
+namespace Restaurants.Application.Ratings.DTOs;
+public class RatingsProfile : Profile
+{
+    public RatingsProfile()
+    {
+        CreateMap<Rating, RatingDTO>()
+            .ForMember(d => d.RestaurantName, opt => opt.MapFrom(src => src.Restaurant!.Name))
+            .ForMember(d => d.DishName, opt => opt.MapFrom(src => src.Dish!.Name))
+            .ForMember(d => d.CustomerName, opt => opt.MapFrom(src => src.Customer.FullName));
+
+    }
+}

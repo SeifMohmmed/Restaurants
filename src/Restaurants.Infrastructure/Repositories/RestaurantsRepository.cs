@@ -6,8 +6,7 @@ using Restaurants.Infrastructure.Data;
 using System.Linq.Expressions;
 
 namespace Restaurants.Infrastructure.Repositories;
-internal class RestaurantsRepository(RestaurantDbContext context)
-        : IRestaurantsRepository
+internal class RestaurantsRepository(RestaurantDbContext context) : IRestaurantsRepository
 {
     public async Task<int> CreateAsync(Restaurant entity)
     {

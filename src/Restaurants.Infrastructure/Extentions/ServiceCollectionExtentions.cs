@@ -35,6 +35,7 @@ public static class ServiceCollectionExtentions
         services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped<IOrdersRepository, OrdersRepository>();
         services.AddScoped<ICustomerRepository, CustomerRepository>();
+        services.AddScoped<IRatingsRepository, RatingsRepository>();
 
         services.AddAuthorizationBuilder()
                 .AddPolicy(PolicyNames.HasNationality,
